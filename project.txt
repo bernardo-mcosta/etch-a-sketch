@@ -1,0 +1,13 @@
+MAIN REQUIREMENTS
+- 16x16 square grid for painting
+  - Grid should be created using JS
+- Button to clean the canvas
+- Button to turn on eraser mode
+- Button to turn on Rainbow mode (random colors)
+- Highlight button when mode is selected
+
+NICE TO HAVE
+- Adjustable grid size (with slider)
+- Option to change paint color using an RGB color picker
+- Website styling using CSS
+- Button animations as you hover over them
