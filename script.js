@@ -35,9 +35,10 @@ buttonClear.addEventListener("click", () => {
   });
 });
 
+let rainbowMode = false;
 const buttonRainbow = document.querySelector(".button-rainbow");
 buttonRainbow.addEventListener("click", () => {
-  color = getRandomColor();
+  rainbowMode = !rainbowMode;
 });
 
 // This three event listeners will allow the coloring effect to happen only when the mouse is both being pressed and dragged
@@ -49,7 +50,9 @@ squares.forEach((square) => {
   });
   square.addEventListener("mousemove", () => {
     if (isDragging) {
-      square.style.backgroundColor = color;
+      if (rainbowMode) {
+        square.style.backgroundColor = getRandomColor();
+      } else square.style.backgroundColor = color;
     }
   });
   square.addEventListener("mouseup", () => {
