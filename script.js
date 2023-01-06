@@ -1,10 +1,8 @@
 const grid = document.querySelector(".grid");
-
-let gridSize = 16; // this parameter will change dynamically later
-
+let gridSize = 2; // this parameter will change dynamically later
+const squares = document.querySelectorAll(".square");
 generateGrid(gridSize);
 
-const squares = document.querySelectorAll(".square");
 let color = "black";
 
 const buttonEraser = document.querySelector(".button-eraser");
@@ -71,6 +69,10 @@ function getRandomColor() {
 }
 
 function generateGrid(size) {
+  const squares = document.querySelectorAll(".square");
+  squares.forEach((square) => {
+    square.remove();
+  });
   grid.style.gridTemplateColumns = `repeat(${size},1fr)`;
   grid.style.gridTemplateRows = `repeat(${size},1fr)`;
   for (i = 0; i < size * size; i++) {
