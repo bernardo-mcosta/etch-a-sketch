@@ -1,11 +1,13 @@
+//// Initialization
+
 let squares;
 let color = "black";
 const grid = document.querySelector(".grid");
 generateGrid(16);
 
-document.body.onmousedown = (e) => {
+grid.addEventListener("mousedown", (e) => {
   e.preventDefault();
-};
+});
 
 //// Button behavior
 
@@ -33,7 +35,6 @@ buttonClear.addEventListener("click", () => {
 const buttonRainbow = document.querySelector(".button-rainbow");
 buttonRainbow.addEventListener("click", () => {
   rainbowMode = !rainbowMode;
-  console.log(rainbowMode);
 });
 
 ///// Slider behavior
@@ -46,8 +47,6 @@ slider.addEventListener("change", (event) => {
   sliderOutput.innerHTML = `${sliderValue} X ${sliderValue}`;
   generateGrid(sliderValue);
 });
-
-// This three event listeners will allow the coloring effect to happen only when the mouse is both being pressed and dragged
 
 //// Helping Functions
 
@@ -79,6 +78,7 @@ function getSquares() {
 }
 
 function addSquareEvent() {
+  // Coloring effect only happens mouse is both clicked and dragged
   let isDragging = false;
   squares.forEach((square) => {
     square.addEventListener("mousedown", () => {
