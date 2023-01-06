@@ -63,7 +63,15 @@ squares.forEach((square) => {
   });
 });
 
-////
+///// Slider behavior
+
+const slider = document.querySelector(".slider");
+slider.addEventListener("change", (event) => {
+  const sliderValue = event.target.value;
+  console.log(sliderValue);
+});
+
+//// Helping Functions
 
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
