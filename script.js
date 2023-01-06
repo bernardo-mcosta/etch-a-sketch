@@ -1,5 +1,5 @@
 const grid = document.querySelector(".grid");
-let gridSize = 2; // this parameter will change dynamically later
+let gridSize = 16; // this parameter will change dynamically later
 const squares = document.querySelectorAll(".square");
 generateGrid(gridSize);
 
@@ -52,11 +52,13 @@ squares.forEach((square) => {
 
 ///// Slider behavior
 
+const sliderOutput = document.querySelector(".slider-output");
 const slider = document.querySelector(".slider");
+
 slider.addEventListener("change", (event) => {
   const sliderValue = event.target.value;
+  sliderOutput.innerHTML = `${sliderValue} X ${sliderValue}`;
   generateGrid(sliderValue);
-  console.log(sliderValue);
 });
 
 //// Helping Functions
