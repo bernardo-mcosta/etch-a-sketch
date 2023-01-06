@@ -1,9 +1,9 @@
-const grid = document.querySelector(".grid");
-let gridSize = 16; // this parameter will change dynamically later
-const squares = document.querySelectorAll(".square");
-generateGrid(gridSize);
-
+let squares;
 let color = "black";
+const grid = document.querySelector(".grid");
+generateGrid(16);
+
+//// Button behavior
 
 const buttonEraser = document.querySelector(".button-eraser");
 buttonEraser.addEventListener("click", () => {
@@ -26,28 +26,7 @@ let rainbowMode = false;
 const buttonRainbow = document.querySelector(".button-rainbow");
 buttonRainbow.addEventListener("click", () => {
   rainbowMode = !rainbowMode;
-});
-
-// This three event listeners will allow the coloring effect to happen only when the mouse is both being pressed and dragged
-
-let isDragging = false;
-squares.forEach((square) => {
-  square.addEventListener("mousedown", () => {
-    isDragging = true;
-  });
-  square.addEventListener("mousemove", () => {
-    if (isDragging) {
-      if (rainbowMode) {
-        square.style.backgroundColor = getRandomColor();
-      } else square.style.backgroundColor = color;
-    }
-  });
-  square.addEventListener("mouseup", () => {
-    isDragging = false;
-  });
-  square.addEventListener("dragstart", (event) => {
-    event.preventDefault;
-  });
+  console.log(rainbowMode);
 });
 
 ///// Slider behavior
@@ -61,6 +40,8 @@ slider.addEventListener("change", (event) => {
   generateGrid(sliderValue);
 });
 
+// This three event listeners will allow the coloring effect to happen only when the mouse is both being pressed and dragged
+
 //// Helping Functions
 
 function getRandomColor() {
@@ -71,7 +52,7 @@ function getRandomColor() {
 }
 
 function generateGrid(size) {
-  const squares = document.querySelectorAll(".square");
+  squares = getSquares();
   squares.forEach((square) => {
     square.remove();
   });
@@ -82,4 +63,29 @@ function generateGrid(size) {
     div.classList.add("square");
     grid.appendChild(div);
   }
+  squares = getSquares();
+  addSquareEvent();
+}
+
+function getSquares() {
+  return document.querySelectorAll(".square");
+}
+
+function addSquareEvent() {
+  let isDragging = false;
+  squares.forEach((square) => {
+    square.addEventListener("mousedown", () => {
+      isDragging = true;
+    });
+    square.addEventListener("mousemove", () => {
+      if (isDragging) {
+        if (rainbowMode) {
+          square.style.backgroundColor = getRandomColor();
+        } else square.style.backgroundColor = color;
+      }
+    });
+    square.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+  });
 }
