@@ -1,19 +1,8 @@
 const grid = document.querySelector(".grid");
-const gridSize = 16; // this parameter will change dynamically later
-const gridHeight = 500; // in pixels
-const gridWidth = 500;
 
-grid.style.display = "grid";
-grid.style.height = `${gridHeight}px`;
-grid.style.width = `${gridWidth}px`;
-grid.style.gridTemplateColumns = `repeat(${gridSize},1fr)`;
-grid.style.gridTemplateRows = `repeat(${gridSize},1fr)`;
+let gridSize = 16; // this parameter will change dynamically later
 
-for (i = 0; i < gridSize * gridSize; i++) {
-  const div = document.createElement("div");
-  div.classList.add("square");
-  grid.appendChild(div);
-}
+generateGrid(gridSize);
 
 const squares = document.querySelectorAll(".square");
 let color = "black";
@@ -68,6 +57,7 @@ squares.forEach((square) => {
 const slider = document.querySelector(".slider");
 slider.addEventListener("change", (event) => {
   const sliderValue = event.target.value;
+  generateGrid(sliderValue);
   console.log(sliderValue);
 });
 
@@ -78,4 +68,14 @@ function getRandomColor() {
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r},${g},${b})`;
+}
+
+function generateGrid(size) {
+  grid.style.gridTemplateColumns = `repeat(${size},1fr)`;
+  grid.style.gridTemplateRows = `repeat(${size},1fr)`;
+  for (i = 0; i < size * size; i++) {
+    const div = document.createElement("div");
+    div.classList.add("square");
+    grid.appendChild(div);
+  }
 }
