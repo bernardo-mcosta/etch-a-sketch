@@ -3,16 +3,24 @@ let color = "black";
 const grid = document.querySelector(".grid");
 generateGrid(16);
 
+document.body.onmousedown = (e) => {
+  e.preventDefault();
+};
+
 //// Button behavior
+
+let rainbowMode = false;
 
 const buttonEraser = document.querySelector(".button-eraser");
 buttonEraser.addEventListener("click", () => {
   color = "white";
+  rainbowMode = false;
 });
 
 const buttonBlack = document.querySelector(".button-black");
 buttonBlack.addEventListener("click", () => {
   color = "black";
+  rainbowMode = false;
 });
 
 const buttonClear = document.querySelector(".button-clear");
@@ -22,7 +30,6 @@ buttonClear.addEventListener("click", () => {
   });
 });
 
-let rainbowMode = false;
 const buttonRainbow = document.querySelector(".button-rainbow");
 buttonRainbow.addEventListener("click", () => {
   rainbowMode = !rainbowMode;
