@@ -35,6 +35,13 @@ buttonClear.addEventListener("click", () => {
 const buttonRainbow = document.querySelector(".button-rainbow");
 buttonRainbow.addEventListener("click", () => {
   rainbowMode = !rainbowMode;
+  buttonRainbow.classList.toggle("clicked");
+});
+
+const colorPicker = document.querySelector(".color-picker");
+colorPicker.addEventListener("change", (event) => {
+  color = event.target.value;
+  console.log(color);
 });
 
 ///// Slider behavior
@@ -42,7 +49,7 @@ buttonRainbow.addEventListener("click", () => {
 const sliderOutput = document.querySelector(".slider-output");
 const slider = document.querySelector(".slider");
 
-slider.addEventListener("change", (event) => {
+slider.addEventListener("input", (event) => {
   const sliderValue = event.target.value;
   sliderOutput.innerHTML = `${sliderValue} X ${sliderValue}`;
   generateGrid(sliderValue);

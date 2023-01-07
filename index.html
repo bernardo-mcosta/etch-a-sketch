@@ -7,18 +7,22 @@
   <title>Etch a Sketch</title>
   <script src="script.js" defer></script>
   <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="title">Etch-a-Sketch!</div>
   <div class="container">
-    <div class="buttons">
-      <button class="button-eraser">ERASER</button>
-      <button class="button-black">BLACK</button>
-      <button class="button-clear">CLEAR CANVAS</button>
-      <button class="button-rainbow">RAINBOW MODE</button>
+    <div class="left-panel">
+      <input type="color" class="color-picker">
+      <button class="button button-black">Black</button>
+      <button class="button button-rainbow">Rainbow Mode!</button>
+      <button class="button button-eraser">Eraser</button>
+      <button class="button button-clear">Clear Canvas</button>    
       <input type="range" class="slider" min="4" max="40" value="16">
-      <div class="slider-output"> 16 X 16 </div>
+      <div class="slider-output"> 16 X 16 </div>     
     </div>
     <div class="grid"></div>
   </div>
+  <div class="footer">Made by Bernardo Costa — 2023<a href="https://github.com/bernardo-mcosta"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github icon" class="footer-icon"></a></div>
 </body>
 </html>
